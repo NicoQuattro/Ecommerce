@@ -1,6 +1,11 @@
-const ItemListContainer =() =>{
+import ItemCount from "./ItemCount";
+
+const ItemListContainer =({tittle}) =>{
     return(
-        <h3>en esta seccion estarian los articulos</h3>
+        <>
+        <h3>{tittle}</h3>
+        <ItemCount stock={9}  initial={1}/>
+        </>
     )
 }
 export default ItemListContainer;

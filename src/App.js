@@ -7,9 +7,8 @@ import ItemListContainer from './components/ItemListContainer';
 function App() {
   return (
     <div className="App">
-      <NavBar>
-      </NavBar>
-      <ItemListContainer/>
+      <NavBar/>
+      <ItemListContainer tittle="listado de productos"/>
     </div>
   );
 }
