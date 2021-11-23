@@ -1,13 +1,3 @@
-import { useEffect } from "react";
-import ItemCount from "./ItemCount";
-import ItemList from "./ItemList";
-import React, { useState } from "react";
-import HandPromise from "../services/HandPromise"
-
-const ItemListContainer =({tittle}) =>{
-    const [products, setProducts] = useState([])
-    console.log('los productos que estan en el hook', products)
-
 const data = [
     {
         "id":1,
@@ -33,7 +23,7 @@ const data = [
         "imagen": "https://images.fravega.com/f500/c1d5bc03a450197b9c616f7390dc9089.jpg",
         "descripcion": "El microondas posee un panel de control mecánico donde se encuentran las funciones.",
         "categoria": "electrodomesticos",
-        "precio": "24000",
+        "precio": "",
         "stock": "6"
     },
 
@@ -101,19 +91,12 @@ const data = [
         "stock": "20"
     }
 ]
-useEffect(() =>{
-    HandPromise
-    .then(res =>{
-        setProducts(res)
-    })
-    .catch (err => console.log ("algo fallo en el useEffect", err))
-},[])
 
-return(
-    <>
-        <h3>{tittle}</h3>
-        <ItemList products={products}/>
-    </>
-);
-};
-export default ItemListContainer;
+const HandPromise = new Promise((resolve, reject)=> {
+    setTimeout(()=>{
+        resolve(data)
+        reject('algo esta mal')
+    }, 2000)
+})
+
+export default HandPromise

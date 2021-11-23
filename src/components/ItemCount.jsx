@@ -1,4 +1,4 @@
-import { useState } from "react";
+ import { useState } from "react";
 
 const ItemCount =({stock, initial}) =>{
 
@@ -34,4 +34,5 @@ const ItemCount =({stock, initial}) =>{
     </>
     )
 }
-export default ItemCount;
+
+export default ItemCount; 
