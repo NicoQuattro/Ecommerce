@@ -6,7 +6,7 @@ const ItemList = ({products}) =>{
         {products.map(product =>{
             return(
             <Item
-                key = {product.id}
+                id = {product.id}
                 titulo = {product.titulo}
                 imagen = {product.imagen}
                 descripcion = {product.descripcion}

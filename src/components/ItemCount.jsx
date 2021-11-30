@@ -1,4 +1,6 @@
  import { useState } from "react";
+ import Button from 'react-bootstrap/Button';
+import CartWidget from "./CartWidget";
 
 const ItemCount =({stock, initial}) =>{
 
@@ -21,16 +23,21 @@ const ItemCount =({stock, initial}) =>{
  
     const onAdd = () => {
         alert(`agregastes ${count} productos al carrito`)
+        CartWidget ({count})
+        
     }
 
     return(
     <>
-        <div>
-            <button onClick={decrementar}>-</button>
-            <h3>{count}</h3>
-            <button onClick={incrementar}>+</button>
+
+        <div className="btn-group btn-group-lg" role="group" aria-label="Basic example">
+            <button onClick={decrementar} type="button" className="btn btn-secondary">-</button>
+            <button type="button" className="btn btn-secondary disabled">{count}</button>
+            <button onClick={incrementar} type="button" className="btn btn-secondary">+</button>
         </div>
-        <button onClick={onAdd}>agregar al carrito</button>
+        
+        <button onClick={onAdd} type="button" class="btn btn-primary btn-lg btnAgregarCarrito">Agregar al carrito</button>
+
     </>
     )
 }

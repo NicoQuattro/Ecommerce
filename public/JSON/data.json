@@ -19,11 +19,11 @@
     },
     {
         "id":3,
-        "titulo": "Microondas BGH",
+        "titulo": "Microondas BGH 20 Lt B120M20",
         "imagen": "https://images.fravega.com/f500/c1d5bc03a450197b9c616f7390dc9089.jpg",
         "descripcion": "El microondas posee un panel de control mecánico donde se encuentran las funciones.",
         "categoria": "electrodomesticos",
-        "precio": "",
+        "precio": "18500",
         "stock": "6"
     },
 
@@ -38,7 +38,7 @@
     },
     {
         "id":5,
-        "titulo": "Lavarropas Carga Frontal Samsung 6.5 Kg 1000 RPM",
+        "titulo": "Lavarropas Carga Frontal Samsung 6.5 Kg",
         "imagen": "https://images.fravega.com/f500/e85c908dd8f880e0960e369ee2debba6.jpg",
         "descripcion": "El lavarropas Samsung WW65M0NHWUA es de carga frontal que combina diseño y tecnología brindando una gran experiencia de uso. Gracias a su tambor con forma de diamante, la ropa no se estropea. Los orificios de desagüe son hasta un 43 por ciento más pequeños que en otras máquinas, lo que previene cualquier tipo de daño en los tejidos.",
         "categoria": "electrodomesticos",
@@ -74,7 +74,7 @@
     },
     {
         "id":9,
-        "titulo": "Impresora Multifuncional HP Ink Tank 315 (Z4B04A)",
+        "titulo": "Impresora Multifuncional HP Ink Tank 315",
         "imagen": "https://images.fravega.com/f500/4f00f8ee083f6292006d3629d99fc846.jpg",
         "descripcion": "Con la impresora multifunción Ink Tank 315 vas a poder imprimir, copiar y escanear documentos y fotos en forma rápida, con colores vibrantes y textos nítidos. Además, vas a poder ahorrar espacio, gracias a su diseño ultra compacto que encaja prácticamente en cualquier espacio.",
         "categoria": "tecnologia",
@@ -83,7 +83,7 @@
     },
     {
         "id":10,
-        "titulo": "Auriculares Headset Gamer Hyperx Cloud Core S 7.1 Pc Ps4 Usb",
+        "titulo": "Auriculares Gamer Hyperx Cloud Core S 7.1",
         "imagen": "https://images.fravega.com/f500/c33e4fb38358631a3512d0d5f594a20e.jpg",
         "descripcion": "AURICULARES HEADSET GAMER HYPERX CLOUD CORE S 7.1 SURROUND HX-HSCC-2-BK • SONIDO ENVOLVENTE VIRTUAL 7.1 El sonido envolvente virtual 7.1 te ofrece un nivel mejorado de precisión auditiva para darte una ventaja competitiva. • CAJA DE CONTROL DE AUDIO AVANZADA Caja de control de audio USB avanzado con tarjeta de sonido de procesamiento de la señal digital (DSP) integrada que amplifica el audio y la voz. • SONIDO INIGUALABLE Altavoces direccionales de 53mm posicionados paralelos a los oídos para un sonido nítido y definido con graves mejorados.",
         "categoria": "tecnologia",
