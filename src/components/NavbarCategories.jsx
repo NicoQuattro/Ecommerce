@@ -9,10 +9,10 @@ const NavbarCategories =() => {
             <span className="navbar-toggler-icon"></span>
             </button>
             <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div className="navbar-nav">
-                <a className="nav-link" href="#">Home</a>
-                <a className="nav-link" href="#">Features</a>
-                <a className="nav-link" href="#">Pricing</a>
+            <div className="navbar-nav mx-auto">
+
+                <Link className="nav-link" to ="/category/electrodomesticos"> Electrodomesticos </Link>
+                <Link className="nav-link" to ="/category/tecnologia"> Tecnologia </Link>
               
             </div>
             </div>

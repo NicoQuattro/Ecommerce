@@ -11,16 +11,17 @@ const NavBar =() => {
                    <span className="navbar-toggler-icon"></span>
                 </button>
       
-                <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     
                 
-                <form className=" d-flex justify-content-center form-inline my-2 my-lg-0 ">
-                    <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
-                    <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                <form className=" inputText d-flex justify-content-center form-inline my-2 my-lg-0  ">
+                    <input className="form-control  mr-sm-2 mx-auto" type="search" placeholder="Buscar" aria-label="Search"/>
+                    <button className="btn btn-secondary botonBusqueda my-2 my-sm-0" type="submit">Buscar
+                    
+                    </button>
                 </form>
 
                 
-                </div>
+                
 
                 <CartWidget />  
             </div>
