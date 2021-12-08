@@ -1,9 +1,22 @@
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import ItemCount from './ItemCount'
+import { useContext, useState } from 'react';
+import {CartContext} from "../context/CartContext"
 
 const ItemDetail = (props) =>{
     const {id, titulo, imagen, descripcion, categoria, precio, stock} = props.item
+    const {setCart, cart} = useContext (CartContext)
+
+    const {contador, setContador} = useState(0);
+
+    const onAdd = (count) =>{
+        setContador(count)
+    }
+    const onAddToCart = () =>{
+        setCart ([...cart, {cantidad: contador, data: props}])
+    }
+    
     return(
             <div className="card mb-3 containerItemDetail">
             <div className="row g-0 cardDetail">
@@ -16,6 +29,8 @@ const ItemDetail = (props) =>{
                     <h5 className="card-text ">${precio}</h5>
                     <p className="card-text">{descripcion}</p>
                     <ItemCount stock={stock} initial={1}/>
+
+
                 </div>
                 </div>
             </div>
