@@ -23,7 +23,7 @@ const data = [
         "imagen": "https://images.fravega.com/f500/c1d5bc03a450197b9c616f7390dc9089.jpg",
         "descripcion": "El microondas posee un panel de control mecánico donde se encuentran las funciones.",
         "categoria": "electrodomesticos",
-        "precio": "",
+        "precio": "18500",
         "stock": "6"
     },
 

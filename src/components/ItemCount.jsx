@@ -1,8 +1,9 @@
- import { useState } from "react";
- import Button from 'react-bootstrap/Button';
+import { useState } from "react";
+import Button from 'react-bootstrap/Button';
 import CartWidget from "./CartWidget";
+import {Link} from "react-router-dom";
 
-const ItemCount =({stock, initial}) =>{
+const ItemCount = ({stock, initial, setQuantity}) =>{
 
     const[count, setCount] = useState (initial);
 
@@ -19,11 +20,10 @@ const ItemCount =({stock, initial}) =>{
             setCount (newValue)
         }
     }
-
  
     const onAdd = () => {
         alert(`agregastes ${count} productos al carrito`)
-        CartWidget ({count})
+        setQuantity(count)
         
     }
 
@@ -36,8 +36,9 @@ const ItemCount =({stock, initial}) =>{
             <button onClick={incrementar} type="button" className="btn btn-secondary">+</button>
         </div>
         
-        <button onClick={onAdd} type="button" class="btn btn-primary btn-lg btnAgregarCarrito">Agregar al carrito</button>
-
+        <button onClick={onAdd} type="button" class="btn btn-primary btn-lg btnA gregarCarrito">Agregar al carrito</button>
+        <Link to = {`/cart`}> <button type="button" className="btn btn-secondary">  ver carrito </button> </Link> 
+        
     </>
     )
 }

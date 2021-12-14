@@ -1,34 +1,37 @@
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import ItemCount from './ItemCount'
-import { useContext, useState } from 'react';
+import { useState, useEffect } from 'react';
 import {CartContext} from "../context/CartContext"
+import { UseCart } from '../context/CartContext';
 
-const ItemDetail = (props) =>{
-    const {id, titulo, imagen, descripcion, categoria, precio, stock} = props.item
-    const {setCart, cart} = useContext (CartContext)
+const ItemDetail = ({item}) =>{
 
-    const {contador, setContador} = useState(0);
+    const {addItem, removeItem} = UseCart();
+    const[quantity, setQuantity]= useState(0);
 
-    const onAdd = (count) =>{
-        setContador(count)
-    }
-    const onAddToCart = () =>{
-        setCart ([...cart, {cantidad: contador, data: props}])
-    }
+
+
+    useEffect(() => {
+        if (quantity > 0){
+            addItem(item, quantity); 
+        }
+         
+    },[quantity])
+
     
     return(
             <div className="card mb-3 containerItemDetail">
             <div className="row g-0 cardDetail">
                 <div className="col-md-4">
-                <img src={imagen} className="img-fluid rounded-start"/>
+                <img src={item.imagen} className="img-fluid rounded-start"/>
                 </div>
                 <div className="col-md-8">
                 <div className="card-body">
-                    <h5 className="card-title">{titulo}</h5>
-                    <h5 className="card-text ">${precio}</h5>
-                    <p className="card-text">{descripcion}</p>
-                    <ItemCount stock={stock} initial={1}/>
+                    <h5 className="card-title">{item.titulo}</h5>
+                    <h5 className="card-text ">${item.precio}</h5>
+                    <p className="card-text">{item.descripcion}</p>
+                    <ItemCount stock={item.stock} initial={1} setQuantity={setQuantity}/>
 
 
                 </div>
