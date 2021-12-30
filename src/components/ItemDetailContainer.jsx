@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import ItemDetail from "./ItemDetail";
 import HandPromise from "../services/HandPromise"
-
+import { getFirestore, getDoc, doc } from "firebase/firestore";
 
 const ItemDetailContainer = () =>{
     const [item, setItem] = useState ({});
@@ -10,11 +10,16 @@ const ItemDetailContainer = () =>{
     
     console.log("id de use params",id)
 
-    useEffect(() =>{
-        HandPromise.then((res) =>{
-            setItem(res.find((prod)=> prod.id === parseInt(id)));
-        });
-    }, [id]);
+    useEffect(() => {
+        const db = getFirestore();
+    
+        const docRef = doc(db, "items", id);
+        getDoc(docRef).then((snapshot) => {
+    
+          setItem({ id: snapshot.id, ...snapshot.data() })
+    
+        })
+      }, [])
     return <ItemDetail item={item}/>;
 };
 

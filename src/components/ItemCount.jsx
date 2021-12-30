@@ -22,7 +22,7 @@ const ItemCount = ({stock, initial, setQuantity}) =>{
     }
  
     const onAdd = () => {
-        alert(`agregastes ${count} productos al carrito`)
+        //aca iria el alert
         setQuantity(count)
         
     }
@@ -37,7 +37,7 @@ const ItemCount = ({stock, initial, setQuantity}) =>{
         </div>
         
         <button onClick={onAdd} type="button" class="btn btn-primary btn-lg btnA gregarCarrito">Agregar al carrito</button>
-        <Link to = {`/cart`}> <button type="button" className="btn btn-secondary">  ver carrito </button> </Link> 
+        <Link to = {`/cart`}> <button type="button" className="btn btn-primary btn-lg btnA">ver carrito</button> </Link> 
         
     </>
     )

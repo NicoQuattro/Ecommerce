@@ -3,25 +3,27 @@ import {useContext, useState } from 'react';
 import {CartContext} from "../context/CartContext";
 import { Link } from 'react-router-dom';
 import { UseCart } from '../context/CartContext';
+import { getFirestore, collection, doc, addDoc, updateDoc } from "firebase/firestore";
 
 
 
 const Cart = () =>{
 
-    const {addedProducts, addItem, removeItem, totalPrice} = UseCart();
+    const {addedProducts, removeItem, totalPrice} = UseCart();
 
     const {cart} = useContext(CartContext);
     console.log (addedProducts)
 
+
+
+
+
+
+
     if (addedProducts.length > 0){
         return(
                 <React.Fragment>
-
-
-
                 {addedProducts.map((value) => (
-                    
-
                     <div className="cart_section">
                     <div className="container-fluid">
                         <div className="row">
@@ -55,8 +57,6 @@ const Cart = () =>{
                                                         <div  className="cart_item_text trashHover"><i class="bi bi-trash"></i></div>
                                                         </span> 
                                                         
-                                                        
-                                    
                                                     </div>
                                                     
                                                 </div>
@@ -92,7 +92,7 @@ const Cart = () =>{
             return (
                 <React.Fragment>
                 
-                <h3>todavia no tenes nada en el carrito!</h3>
+                <h3 className="carritoVacio">todavia no tenes nada en el carrito!</h3>
                 <Link to ='/'>Ir al listado de productos</Link> 
 
                 </React.Fragment>

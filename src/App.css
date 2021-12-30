@@ -15,6 +15,7 @@
 
 .card {
   box-shadow: 0 3px 7px -1px rgba(0, 0, 0, 0.1); 
+  height: 540px;
 }
 
 
@@ -280,4 +281,8 @@ ul {
 
 .trashHover{
   cursor: pointer;
+}
+
+.carritoVacio{
+  margin-top: 50px;
 }
