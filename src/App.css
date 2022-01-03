@@ -286,3 +286,14 @@ ul {
 .carritoVacio{
   margin-top: 50px;
 }
+
+.inputStyle{
+  width: 450px;
+  height: 30px;
+  margin-bottom: 20px;
+  border-radius: 3px;
+
+}
+.order_total{
+  margin-bottom: 40px;
+}

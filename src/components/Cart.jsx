@@ -9,12 +9,69 @@ import { getFirestore, collection, doc, addDoc, updateDoc } from "firebase/fires
 
 const Cart = () =>{
 
-    const {addedProducts, removeItem, totalPrice} = UseCart();
-
-    const {cart} = useContext(CartContext);
+    const {addedProducts, removeItem, totalPrice, clear} = UseCart();
     console.log (addedProducts)
 
+    const inputs = [
+        {
+          label: "Nombre y Apellido",
+          name: "name"
+        },
+        {
+          label: "Correo",
+          name: "email"
+        },
+        {
+          label: "Telefono",
+          name: "phone"
+        }
+      ];
+    
+      const [formFields, setFormFields] = useState({
+        name: "",
+        email: "",
+        phone: ""
+      });
 
+      const updateDB = () => {
+        const db = getFirestore();
+        addedProducts.map((prod) => {
+            updateDoc(doc(db, "items", `${prod.item.id}`), { Stock: prod.item.stock - prod.quantity })
+          })
+      }
+
+      const onChange = (event) => {
+        setFormFields({ ...formFields, [event.target.name]: event.target.value });
+      };
+      const [orderId, setOrderId] = useState();
+    
+      const db = getFirestore();
+
+      const addOrderToDb = () => {
+        var date = new Date();
+        const orderCollection = collection(db, "Orders")
+        const data =
+        {
+        buyer:
+        {
+            name: formFields.name,
+            phone: formFields.phone,
+            email: formFields.email
+        },
+        date: date,
+        items: addedProducts,
+        total: totalPrice()
+        }
+        addDoc(orderCollection, data).then((data) => {
+        setOrderId(data.id)
+        })
+
+    }
+    const handleFormSubmit = () => {
+        addOrderToDb();
+        updateDB();
+        clear();
+  }
 
 
 
@@ -79,10 +136,28 @@ const Cart = () =>{
                         <div className="order_total_title">Monto Total:</div>
                         <div className="order_total_amount">${totalPrice()}</div>
                     </div>
-                        </div>
-                    <div className="cart_buttons"> <Link to ='/'><button type="button" className="button cart_button_clear">Continuar Comprano</button></Link>  
-                    <button type="button" className="button cart_button_checkout">Proceder al Pago</button> 
                 </div>
+
+
+                
+                {inputs.map(({ name, label }) => (
+                    <div>
+                        <h5>{label}</h5>
+                        <input className="inputStyle" 
+                        value={formFields[name]} 
+                        type="text"
+                        onChange={onChange}
+                        name={name}
+                        />
+                    </div>))}
+                
+
+                <div className="cart_buttons"> <Link to ='/'><button type="button" className="button cart_button_clear">Continuar Comprano</button></Link>  
+                <button type="button" className="button cart_button_checkout" onClick={handleFormSubmit} >Realizar Orden</button> 
+                </div>
+
+               
+
 
                 </React.Fragment>
             )
@@ -90,12 +165,17 @@ const Cart = () =>{
 
         }else{
             return (
-                <React.Fragment>
                 
-                <h3 className="carritoVacio">todavia no tenes nada en el carrito!</h3>
-                <Link to ='/'>Ir al listado de productos</Link> 
+                <React.Fragment>
+                    {orderId !== undefined &&
+                        alert ("Su orden se ha enviado el numero de orden es "+ JSON.stringify(orderId))
+                    }
+
+                    <h3 className="carritoVacio">todavia no tenes nada en el carrito!</h3>
+                    <Link to ='/'>Ir al listado de productos</Link> 
 
                 </React.Fragment>
             )}
         }
+                
 export default Cart;
